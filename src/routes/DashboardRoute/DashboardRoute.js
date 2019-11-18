@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import DashWord from '../../components/DashWord/Dashword';
 
 class DashboardRoute extends Component {
 
@@ -7,19 +8,18 @@ class DashboardRoute extends Component {
     words: []
   }
   render() {
+    const { language, words } = this.props;
+    words.map(word => (console.log(word)));
+    console.log(words);
     return (
       <section>
-        <h2>My Language: {this.props.language.name}</h2>
-        <h3>Phrases (Total Score: {this.props.language.total_score})</h3>
-        <div>
-          {this.props.words.map(word => (
-            <ul key={word.id}>
-              <li>{word.original}</li>
-              <li>Correct attempts: {word.correct_count}</li>
-              <li>Missed attempts: {word.incorrect_count}</li>
-            </ul>
+        <h2>My Language: {language.name}</h2>
+        <h3>Phrases (Total Score: {language.total_score})</h3>
+        <ul className='DashBoard__wordList'>
+          {words.map(word => (
+            <DashWord word={word} />
           ))}
-        </div>
+        </ul>
         <button>Start Learning</button>
       </section>
     )
