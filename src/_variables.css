@@ -1,0 +1,37 @@
+@font-face {
+  font-family: '2-questa_grande_regular_31';
+  src: local('2-questa_grande_regular_31'),
+       url('./assets/fonts/2-questa_grande_regular_31-webfont.woff2') format('woff2'),
+       url('./assets/fonts/2-questa_grande_regular_31-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'abelregular';
+  src: local('abel-regular-webfont'), url('./assets/fonts/abel-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+:root {
+
+/* Color Vars */
+
+  --base-color: #fffD77;
+  --accent-color-1: #388697;
+  --accent-color-2: #271033;
+  --accent-color-3: #0f0613;
+  --light-gray: #fff6D1;
+  --dark-gray: #4a4a4a;
+  --off-black: #050505;
+  --off-white: #fafafa;
+
+/* Type Vars */
+
+  --header-family: '2-questa_grande_regular_31', serif;
+  --emph-family: 'abelregular';
+  --base-family: 'abelregular';
+}
