@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: 'fantasquesansmono-regular-webfont', 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: --var(--off-white);
+  color: #0f0613;
+  display: grid;
+  line-height: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 0.25rem;
+  border-style: solid;
+  border-color: var(--accent-color-1);
+  border-width: 3px 1px 4px;
+}
+
+form div {
+  display: flex;
+  flex-flow: column;
+  margin: .25rem;
+}
+
+label {
+  margin: .25rem;
+}
+
+form footer {
+  margin: 1.25rem 0;
+}
+
+input {
+  background-color: var(--light-orange);
+  border-color: var(--accent-color-1);
+  border-style: solid;
+  border-radius: .15rem;
+  border-width: 1px 2px 4px 2px;
+  padding: 0.5rem;
+}
+
+button {
+  background-color: var(--accent-color-1);
+  border-style: solid;
+  border-color: var(--accent-color-2);
+  border-radius: .75rem;
+  padding: .5rem;
+  color: var(--off-white);
+}
+
+.App {
+  margin: 1.5rem;
+}

@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'fantasquesansmono-regular-webfont';
+  src: local('fantasquesansmono-regular-webfont'),
+       url('./assets/fonts/fantasquesansmono-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Molot-webfont';
+  src: local('Molot-webfont'), url('./assets/fonts/Molot-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+
+  --font-size: calc(10px + 1vmin);
+
+  /* Color Vars */
+  
+    --base-color: #fffD77;
+    --accent-color-1: #388697;
+    --accent-color-2: #271033;
+    --accent-color-3: #0f0613;
+    --light-orange: rgb(255, 235, 212);
+    --dark-gray: #4a4a4a;
+    --off-black: #050505;
+    --off-white: #fafafa;
+  
+  /* Type Vars */
+  
+    --header-family: 'Molot-webfont', serif;
+    --emph-family: 'abelregular';
+    --base-family: 'fantasquesansmono-regular-webfont';
+
+  /* Spacing Vars */
+    --base-em: 16px;
+    --base-line-height: 1.5rem;
+}
