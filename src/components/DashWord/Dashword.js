@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Dashword.css';
 
 class DashWord extends Component {
   render() {
@@ -6,12 +7,14 @@ class DashWord extends Component {
     return (
       <>
         <h4 className="DashWord__header">{word.original}</h4>
-        <ul>
-          <li className="DashWord">
-            <p className="DashWord__correct">
+        <ul className="DashWord">
+          <li className="DashWord__correct">
+            <p>
               Correct attempts: {word.correct_count}
             </p>
-            <p className="Dashword_incorrect">
+            </li>
+            <li className="Dashword_incorrect">
+            <p>
               Missed attempts: {word.incorrect_count}
             </p>
           </li>

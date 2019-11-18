@@ -1,3 +1,22 @@
-.DashWord__header {}
-.DashWord__correct {}
-.DashWord__incorrect {}
+.DashWord__header {
+  border-style: solid;
+  border-width: 1px 4px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.DashWord__header :lang(ru) {
+  color: red;
+}
+
+.Dashword {
+  border: 1px solid;
+  list-style-type: none;
+}
+
+.DashWord__correct {
+  color: rgb(40, 156, 24);
+}
+.DashWord__incorrect {
+  color: 
+}

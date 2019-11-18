@@ -11,6 +11,16 @@ body {
   line-height: 1.5rem;
 }
 
+h1, h2, h3 {
+  font-family: var(--header-family);
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 1em;
+  letter-spacing: 1.25pt;
+}
+
 a {
   text-decoration: none;
 }
