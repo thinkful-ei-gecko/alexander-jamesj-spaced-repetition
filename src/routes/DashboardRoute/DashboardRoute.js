@@ -10,7 +10,7 @@ class DashboardRoute extends Component {
   render() {
     const { language, words } = this.props;
     return (
-      <section>
+      <section className='DashBoard'>
         <h2>My Language: {language.name}</h2>
         <h3>Phrases (Total Score: {language.total_score})</h3>
         <ul className='DashBoard__wordList'>
