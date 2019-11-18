@@ -348,20 +348,17 @@ template {
   display: none;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'fantasquesansmono-regular-webfont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: --var(--off-white);
+  color: #0f0613;
+  display: grid;
+  line-height: 1.25rem;
 }
 
-:root {
-  --font-size: calc(10px + 1vmin);
-}
+
+

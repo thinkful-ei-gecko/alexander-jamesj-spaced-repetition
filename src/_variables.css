@@ -1,37 +1,40 @@
 @font-face {
-  font-family: '2-questa_grande_regular_31';
-  src: local('2-questa_grande_regular_31'),
-       url('./assets/fonts/2-questa_grande_regular_31-webfont.woff2') format('woff2'),
-       url('./assets/fonts/2-questa_grande_regular_31-webfont.woff') format('woff');
+  font-family: 'fantasquesansmono-regular-webfont';
+  src: local('fantasquesansmono-regular-webfont'),
+       url('./assets/fonts/fantasquesansmono-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'abelregular';
-  src: local('abel-regular-webfont'), url('./assets/fonts/abel-regular-webfont.woff') format('woff');
+  font-family: 'Molot-webfont';
+  src: local('Molot-webfont'), url('./assets/fonts/Molot-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-
-
 :root {
 
-/* Color Vars */
+  --font-size: calc(10px + 1vmin);
 
-  --base-color: #fffD77;
-  --accent-color-1: #388697;
-  --accent-color-2: #271033;
-  --accent-color-3: #0f0613;
-  --light-gray: #fff6D1;
-  --dark-gray: #4a4a4a;
-  --off-black: #050505;
-  --off-white: #fafafa;
+  /* Color Vars */
+  
+    --base-color: #fffD77;
+    --accent-color-1: #388697;
+    --accent-color-2: #271033;
+    --accent-color-3: #0f0613;
+    --light-orange: rgb(255, 235, 212);
+    --dark-gray: #4a4a4a;
+    --off-black: #050505;
+    --off-white: #fafafa;
+  
+  /* Type Vars */
+  
+    --header-family: 'Molot-webfont', serif;
+    --emph-family: 'abelregular';
+    --base-family: 'fantasquesansmono-regular-webfont';
 
-/* Type Vars */
-
-  --header-family: '2-questa_grande_regular_31', serif;
-  --emph-family: 'abelregular';
-  --base-family: 'abelregular';
+  /* Spacing Vars */
+    --base-em: 16px;
+    --base-line-height: 1.5rem;
 }
