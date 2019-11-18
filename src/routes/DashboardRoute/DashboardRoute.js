@@ -13,14 +13,16 @@ class DashboardRoute extends Component {
         <h3>Phrases (Total Score: {this.props.language.total_score})</h3>
         <div>
           {this.props.words.map(word => (
+            <div>
+            <h4>{word.original}</h4>
             <ul key={word.id}>
-              <li>{word.original}</li>
               <li>Correct attempts: {word.correct_count}</li>
               <li>Missed attempts: {word.incorrect_count}</li>
             </ul>
+            </div>
           ))}
         </div>
-        <button>Start Learning</button>
+        <a href='/learn'>Start Learning</a>
       </section>
     )
   }
