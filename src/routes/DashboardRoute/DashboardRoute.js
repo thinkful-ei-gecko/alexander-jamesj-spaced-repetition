@@ -1,27 +1,44 @@
-import React, { Component } from 'react';
-import DashWord from '../../components/DashWord/Dashword';
+import React, { Component } from 'react'
+import DashWord from '../../components/DashWord/Dashword'
+import UserContext from '../../contexts/UserContext'
 
 class DashboardRoute extends Component {
+  componentDidMount() {
+    this.props.processUserLanguage()
+  }
 
+  componentWillUpdate() {
+    if (
+      this.props.error &&
+      this.props.error.error === 'Unauthorized request'
+    ) {
+      this.props.clearError()
+      this.context.processLogout()
+    }
+  }
   static defaultProps = {
     language: {},
-    words: []
+    words: [],
+    processUserLanguage: () => {},
+    error: null,
   }
-  render() {
-    const { language, words } = this.props;
-    return (
 
-      <section className='DashBoard'>
-        <h2>My Language: {language.name}</h2>
-        <h3>Phrases (Total Score: {language.total_score})</h3>
-        <div className='DashBoard__wordList'>
-          {words.map(word => (
-            <DashWord key={word.id} word={word} />
-          ))}
-        </div>
-        <a href='/learn'>Start Learning</a>
-      </section>
-    )
+  static contextType = UserContext
+
+  render() {
+    const { language, words } = this.props
+    return (
+        <section className="DashBoard">
+          <h2>My Language: {language.name}</h2>
+          <h3>Phrases (Total Score: {language.total_score})</h3>
+          <div className="DashBoard__wordList">
+            {words.map(word => (
+              <DashWord key={word.id} word={word} />
+            ))}
+          </div>
+          <a href="/learn">Start Learning</a>
+        </section>
+      )
   }
 }
 

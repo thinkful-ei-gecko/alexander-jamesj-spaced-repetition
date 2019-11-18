@@ -6,6 +6,7 @@ const LanguageContext = React.createContext({
   language: {},
   words: [],
   error: null,
+  processUserLanguage: () => {}
 })
 
 export default LanguageContext
@@ -20,7 +21,7 @@ export class LanguageProvider extends React.Component {
     }
   }
 
-  componentDidMount() {
+  processUserLanguage = () => {
     if (TokenService.hasAuthToken()) {
       LanguageAPIService.getUserLanguage()
       .then(lang => {
@@ -29,14 +30,35 @@ export class LanguageProvider extends React.Component {
           words: lang.words,
         })
       })
-      .catch(e => this.setState({ error: e }))
+      .catch(err => {
+        this.setError(err)
+      })
     }
+  }
+
+  setError = error => {
+    this.setState({
+      error
+    })
+  }
+
+  clearError = () => {
+    this.setState({
+      error: null
+    })
+  }
+
+  componentDidMount() {
+    this.processUserLanguage()
   }
 
   render() {
     const value = {
       language: this.state.language,
-      words: this.state.words
+      words: this.state.words,
+      error: this.state.error,
+      processUserLanguage: this.processUserLanguage,
+      clearError: this.clearError
     }
     return (
       <LanguageContext.Provider value={value}>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import UserContext from '../../contexts/UserContext'
+import LanguageContext from '../../contexts/LanguageContext'
 
 export default function PublicOnlyRoute({ component, ...props }) {
   const Component = component
@@ -12,7 +13,13 @@ export default function PublicOnlyRoute({ component, ...props }) {
           {userContext =>
             !!userContext.user.id
               ? <Redirect to={'/'} />
-              : <Component {...componentProps} />
+              : (
+                <LanguageContext.Consumer>
+                  {langContext => (
+                    <Component {...componentProps} {...langContext} />
+                  )}
+                </LanguageContext.Consumer>
+              )
           }
         </UserContext.Consumer>
       )}
