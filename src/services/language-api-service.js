@@ -3,7 +3,6 @@ import TokenService from './token-service'
 
 const LanguageAPIService = {
   getUserLanguage: () => {
-    console.log(TokenService.getAuthToken())
     return fetch(`${config.API_ENDPOINT}/language`, {
       method: 'GET',
       headers: {
