@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 
 class DashboardRoute extends Component {
+
+  static defaultProps = {
+    language: {},
+    words: []
+  }
   render() {
     return (
       <section>
