@@ -37,15 +37,15 @@ describe(`User story: User's dashboard`, function() {
         cy.root()
           .should(
             'contain',
-            `Total correct answers: ${language.total_score}`,
+            `Total Score: ${language.total_score}`,
           )
 
         cy.get('a')
           .should('have.attr', 'href', '/learn')
-          .and('have.text', 'Start practicing')
+          .and('have.text', 'Start Learning')
 
         cy.get('h3')
-          .should('have.text', 'Words to practice')
+          .should('have.text', `Phrases (Total Score: ${language.total_score})`)
       })
     })
   })
@@ -53,22 +53,21 @@ describe(`User story: User's dashboard`, function() {
   it(`shows an LI and link for each language`, () => {
     cy.wait('@languageRequest')
     cy.fixture('language.json').then(({ words }) => {
-
       words.forEach((word, idx) => {
-        cy.get('main section li').eq(idx).within($li => {
-
-          cy.get('h4').should('have.text', word.original)
-
-          cy.root()
+        cy.get('h4').eq(idx).should('have.text', word.original)
+      })
+      words.forEach((word, idx) => {
+        cy.get('main section ul').eq(idx).within($ul => {
+          cy.get('li')
             .should(
               'contain',
-              `correct answer count: ${word.correct_count}`
+              `Correct attempts: ${word.correct_count}`
             )
 
-          cy.root()
+          cy.get('li')
             .should(
               'contain',
-              `incorrect answer count: ${word.incorrect_count}`
+              `Missed attempts: ${word.incorrect_count}`
             )
         })
       })

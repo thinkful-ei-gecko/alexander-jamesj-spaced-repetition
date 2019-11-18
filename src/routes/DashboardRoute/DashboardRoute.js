@@ -13,12 +13,12 @@ class DashboardRoute extends Component {
       <section className='DashBoard'>
         <h2>My Language: {language.name}</h2>
         <h3>Phrases (Total Score: {language.total_score})</h3>
-        <ul className='DashBoard__wordList'>
+        <div className='DashBoard__wordList'>
           {words.map(word => (
             <DashWord key={word.id} word={word} />
           ))}
-        </ul>
-        <button>Start Learning</button>
+        </div>
+        <a href='/learn'>Start Learning</a>
       </section>
     )
   }
