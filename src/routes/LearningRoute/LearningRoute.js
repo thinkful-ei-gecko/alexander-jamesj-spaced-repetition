@@ -3,6 +3,7 @@ import LearningContext from '../../contexts/LearningContext';
 import LearnWord from '../../components/LearnWord/LearnWord'
 import { Input, Required, Label } from '../../components/Form/Form'
 import Button from '../../components/Button/Button'
+import GuessForm from '../../components/GuessForm/GuessForm'
 
 
 class LearningRoute extends Component {
@@ -31,14 +32,7 @@ class LearningRoute extends Component {
           correct={correct}
           incorrect={incorrect}
         />
-        <Label htmlFor="learn-guess-input">Guess<Required /></Label>
-        <Input
-          id='learn-guess-input'
-          name='learn-guess-input'
-          type='text'
-          required
-        />
-        <Button type='submit' onClick={submitGuess}>Submit</Button>
+        <GuessForm submitGuess={submitGuess} />
       </section>
     );
   }
