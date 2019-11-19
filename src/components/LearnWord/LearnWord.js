@@ -13,10 +13,11 @@ class LearnWord extends Component {
     const { currentScore, word, correct, incorrect } = this.props
     return (
       <section className="LearnWord">
-        <h4 className="LearnWord__current">Your Current Score: {currentScore}</h4>
-        <h3 className="LearnWord__word">{word}</h3>
+        <h2 className="LearnWord__word">{word}</h2>
         <p className="LearnWord__correct">Correct: {correct}</p>
         <p className="LearnWord__incorrect">Incorrect: {incorrect}</p>
+
+        <h3 className="LearnWord__current">Your Current Score: {currentScore}</h3>
       </section>
     )
   }

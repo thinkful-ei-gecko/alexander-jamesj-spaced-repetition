@@ -5,10 +5,6 @@
   text-align: center;
 }
 
-.DashWord__header :lang(ru) {
-  color: red;
-}
-
 .Dashword {
   border: 1px solid;
   list-style-type: none;

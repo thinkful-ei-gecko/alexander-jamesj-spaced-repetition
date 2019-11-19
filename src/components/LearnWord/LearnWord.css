@@ -1,1 +1,8 @@
-.LearnWord {}
+.LearnWord {
+  border: 1px solid;
+  padding: 1.5rem;
+}
+
+.LearnWord__current {
+  font-size: 1.25em;
+}
