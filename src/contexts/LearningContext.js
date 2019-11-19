@@ -8,7 +8,8 @@ const LearningContext = React.createContext({
   correct: null,
   incorrect: null,
   error: null,
-  processWord: () => { }
+  processWord: () => { },
+  submitGuess: () => { }
 })
 
 export default LearningContext
@@ -40,6 +41,10 @@ export class LearningProvider extends React.Component {
         this.setError(err)
       })
     }
+  }
+
+  submitGuess = () => {
+    //TODO submit guess logic
   }
 
   setError = error => {

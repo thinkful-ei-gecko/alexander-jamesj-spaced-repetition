@@ -16,29 +16,29 @@ class LearningRoute extends Component {
       push: () => { },
     },
     processWord: () => { },
+    submitGuess: () => { },
   }
 
   static contextType = LearningContext;
 
   render() {
-    const {currentScore, word, correct, incorrect} = this.context;
+    const {currentScore, word, correct, incorrect, submitGuess} = this.context;
     return (
       <section className='Learning'>
-        <h2>Learn the Things!</h2>
         <LearnWord
           currentScore={currentScore}
           word={word}
           correct={correct}
           incorrect={incorrect}
         />
-        <Label htmlFor="word-guess">Guess<Required /></Label>
+        <Label htmlFor="learn-guess-input">Guess<Required /></Label>
         <Input
-          id='word-guess'
-          name='word-guess'
+          id='learn-guess-input'
+          name='learn-guess-input'
           type='text'
           required
         />
-        <Button>Submit</Button>
+        <Button type='submit' onClick={submitGuess}>Submit</Button>
       </section>
     );
   }
