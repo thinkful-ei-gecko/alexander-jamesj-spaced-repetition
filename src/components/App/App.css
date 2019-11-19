@@ -59,6 +59,8 @@ input {
 }
 
 button {
+  /* TODO button styles interacting with normalize on margin*/
+  margin-top: 1.5em;
   background-color: var(--accent-color-1);
   border-style: solid;
   border-color: var(--accent-color-2);

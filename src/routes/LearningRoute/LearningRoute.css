@@ -1,0 +1,10 @@
+.LearningRoute__current__p {
+  text-align: center;
+  font-weight: 600;
+}
+
+.LearningRoute__current__p__score {
+  display: block;
+  font-size: 1.5em;
+  margin: .75em 0;
+}

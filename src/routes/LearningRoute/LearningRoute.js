@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import LearningContext from '../../contexts/LearningContext';
 import LearnWord from '../../components/LearnWord/LearnWord'
-import { Input, Required, Label } from '../../components/Form/Form'
-import Button from '../../components/Button/Button'
 import GuessForm from '../../components/GuessForm/GuessForm'
+import './LearningRoute.css'
 
 
 class LearningRoute extends Component {
@@ -33,6 +32,9 @@ class LearningRoute extends Component {
           incorrect={incorrect}
         />
         <GuessForm submitGuess={submitGuess} />
+        <section className="LearningRoute__current">
+          <p className="LearningRoute__current__p">Your total score is: <span className="LearningRoute__current__p__score">{currentScore}</span></p>
+        </section>
       </section>
     );
   }

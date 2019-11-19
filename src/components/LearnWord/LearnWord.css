@@ -1,8 +1,34 @@
 .LearnWord {
-  border: 1px solid;
   padding: 1.5rem;
 }
 
+.LearnWord__word_heading {
+  /* TODO fix font */
+}
+
 .LearnWord__current {
-  font-size: 1.25em;
+  margin: 0;
+}
+
+.LearnWord__word {
+  font-weight: 500;
+  display: block;
+  padding: .75em;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.LearnWord__correct, .LearnWord__incorrect {
+  padding: 1em;
+  font-size: .85em;
+  font-weight: 500;
+  margin: 0;
+}
+
+.LearnWord__correct {
+  color: var(--accent-color-1);
+}
+
+.LearnWord__incorrect {
+  color: var(--accent-color-1);
 }
