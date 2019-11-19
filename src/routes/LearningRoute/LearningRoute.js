@@ -9,7 +9,7 @@ class LearningRoute extends Component {
   componentDidMount() {
     this.context.processWord();
   }
-  
+
   static defaultProps = {
     location: {},
     history: {
@@ -22,7 +22,7 @@ class LearningRoute extends Component {
   static contextType = LearningContext;
 
   render() {
-    const {currentScore, word, correct, incorrect, submitGuess} = this.context;
+    const { currentScore, word, correct, incorrect, onSubmitGuess, onGuessChange, guess } = this.context;
     return (
       <section className='Learning'>
         <LearnWord
@@ -31,9 +31,14 @@ class LearningRoute extends Component {
           correct={correct}
           incorrect={incorrect}
         />
-        <GuessForm submitGuess={submitGuess} />
+        <GuessForm
+          handleSubmitGuess={onSubmitGuess}
+          handleGuessChange={onGuessChange}
+          guess={guess}
+        />
         <section className="LearningRoute__current">
-          <p className="LearningRoute__current__p">Your total score is: <span className="LearningRoute__current__p__score">{currentScore}</span></p>
+          <p className="LearningRoute__current__p">
+            Your total score is: <span className="LearningRoute__current__p__score">{currentScore}</span></p>
         </section>
       </section>
     );
