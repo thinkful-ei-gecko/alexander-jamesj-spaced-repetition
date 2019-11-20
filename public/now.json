@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "name": "Syntracks",
+  "alias": "psychicbologna-syntracks-app",
+  "routes": [
+    {
+      "src":"^/static/(.*)",
+      "dest":"^/static/$1"
+    },
+    {
+      "src":".*",
+      "dest": "/index.html"
+    }
+  ]
+}

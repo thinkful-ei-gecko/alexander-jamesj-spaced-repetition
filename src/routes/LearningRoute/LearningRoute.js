@@ -29,10 +29,9 @@ class LearningRoute extends Component {
           nextWord={nextWord}
         />
         <GuessForm
-          guess
           handleSubmitGuess={onSubmitGuess}
           handleGuessChange={onGuessChange}
-          guess={guess}
+          guess
         />
         <section className="LearningRoute__current">
           <p className="LearningRoute__current__p">
