@@ -43,7 +43,7 @@ class Header extends Component {
       <header className='Header'>
         <h1>
           <Link to='/'>
-            Spaced repetition
+            Syntrack
           </Link>
         </h1>
         {TokenService.hasAuthToken()
