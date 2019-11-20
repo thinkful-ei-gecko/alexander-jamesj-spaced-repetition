@@ -63,7 +63,8 @@ export class LearningProvider extends React.Component {
   onSubmitGuess = (event) => {    
     event.preventDefault();
 
-    let guess = this.state.guess.value;
+    let guess = { guess: this.state.guess.value };
+
 
     LanguageAPIService.submitGuess(guess)
       .then(res => {

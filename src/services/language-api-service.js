@@ -34,14 +34,14 @@ const LanguageAPIService = {
       })
   },
 
-  //TODO this endpoint isn't active yet!
   submitGuess: (guess) => {
     return fetch(`${config.API_ENDPOINT}/language/guess`, {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': `Bearer ${TokenService.getAuthToken()}`,
+      },
       body: JSON.stringify(guess)
-      }
     })
       .then(res => {
         console.log(res);
