@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import LearningContext from '../../contexts/LearningContext';
-import LearnWord from '../../components/LearnWord/LearnWord'
+import LearningWord from '../../components/LearningWord/LearningWord'
 import GuessForm from '../../components/GuessForm/GuessForm'
 import './LearningRoute.css'
 
-
+//TODO keep refactoring data
 class LearningRoute extends Component {
   componentDidMount() {
     this.context.processWord();
@@ -22,16 +22,14 @@ class LearningRoute extends Component {
   static contextType = LearningContext;
 
   render() {
-    const { currentScore, word, correct, incorrect, onSubmitGuess, onGuessChange, guess } = this.context;
+    const { nextWord, onSubmitGuess, onGuessChange, guess } = this.context;
     return (
       <section className='Learning'>
-        <LearnWord
-          currentScore={currentScore}
-          word={word}
-          correct={correct}
-          incorrect={incorrect}
+        <LearningWord
+          nextWord={nextWord}
         />
         <GuessForm
+          guess
           handleSubmitGuess={onSubmitGuess}
           handleGuessChange={onGuessChange}
           guess={guess}

@@ -1,16 +1,16 @@
-.LearnWord {
+.LearningWord {
   padding: 1.5rem;
 }
 
-.LearnWord__word_heading {
+.LearningWord__word_heading {
   /* TODO fix font */
 }
 
-.LearnWord__current {
+.LearningWord__current {
   margin: 0;
 }
 
-.LearnWord__word {
+.LearningWord__word {
   font-weight: 500;
   display: block;
   padding: .75em;
@@ -18,17 +18,17 @@
   border-bottom: 1px solid;
 }
 
-.LearnWord__correct, .LearnWord__incorrect {
+.LearningWord__correct, .LearningWord__incorrect {
   padding: 1em;
   font-size: .85em;
   font-weight: 500;
   margin: 0;
 }
 
-.LearnWord__correct {
+.LearningWord__correct {
   color: var(--accent-color-1);
 }
 
-.LearnWord__incorrect {
+.LearningWord__incorrect {
   color: var(--accent-color-1);
 }
