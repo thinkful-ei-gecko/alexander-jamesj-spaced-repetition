@@ -9,13 +9,13 @@ class LearningWord extends Component {
     incorrect: null
   }
   render() {
-    const { word, correct, incorrect } = this.props
+    const { nextWord } = this.props
     return (
       <section className="LearningWord">
         <h2 className="LearningWord__word_heading">Translate the word:</h2>
-        <span className="LearningWord__word">{word}</span>
-        <p className="LearningWord__correct">You have answered this word correctly {correct} times.</p>
-        <p className="LearningWord__incorrect">You have answered this word incorrectly {incorrect} times.</p>
+        <span className="LearningWord__word">{nextWord.word}</span>
+        <p className="LearningWord__correct">You have answered this word correctly {nextWord.correct} times.</p>
+        <p className="LearningWord__incorrect">You have answered this word incorrectly {nextWord.incorrect} times.</p>
       </section>
     )
   }

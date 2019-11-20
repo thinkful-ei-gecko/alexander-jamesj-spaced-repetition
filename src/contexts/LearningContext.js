@@ -53,16 +53,18 @@ export class LearningProvider extends React.Component {
     if (TokenService.hasAuthToken()) {
       LanguageAPIService.getNextWord()
         .then(word => {
+          console.log(word);
           //Set word, return the rest of response to check if there's feedback
           this.setNextWord();
           return word
         })
         .then(feedback => {
+          console.log(feedback);
           //If there's feedback, set feedback data and toggle feedback display.
-          if (!!feedback.answer && !!feedback.isCorrect) {
-            this.setFeedback();
-            this.toggleFeedback();
-          }
+          // if (!!feedback.answer && !!feedback.isCorrect) {
+          //   this.setFeedback();
+          //   this.toggleFeedback();
+          // }
         })
         .catch(err => {
           this.setError(err)

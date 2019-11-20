@@ -5,7 +5,7 @@ class LearningFeedback extends Component {
     isCorrect: false,
     answer: null,
     word: {
-      guess: 'The last guess',
+      guess: '',
       word: 'Word'
     },
     nextWord: {

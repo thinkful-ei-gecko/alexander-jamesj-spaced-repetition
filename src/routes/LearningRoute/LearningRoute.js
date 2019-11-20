@@ -22,6 +22,7 @@ class LearningRoute extends Component {
   static contextType = LearningContext;
 
   render() {
+    console.log(this.context)
     const { nextWord, onSubmitGuess, onGuessChange, guess } = this.context;
     return (
       <section className='Learning'>
@@ -31,11 +32,11 @@ class LearningRoute extends Component {
         <GuessForm
           handleSubmitGuess={onSubmitGuess}
           handleGuessChange={onGuessChange}
-          guess
+          guess={guess}
         />
         <section className="LearningRoute__current">
           <p className="LearningRoute__current__p">
-            Your total score is: <span className="LearningRoute__current__p__score">{currentScore}</span></p>
+            Your total score is: <span className="LearningRoute__current__p__score">{nextWord}</span></p>
         </section>
       </section>
     );
