@@ -70,6 +70,9 @@ export class LearningProvider extends React.Component {
       .then(res => {
         console.log(res);
         this.processWord();
+        this.setState({
+          guess: nullGuess
+        })
       })
       .catch(err => {
         this.setError(err)
