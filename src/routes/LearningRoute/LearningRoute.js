@@ -38,6 +38,7 @@ class LearningRoute extends Component {
             : <LearningAnswer
                 guessFeedback={guessFeedback}
                 toggleShowFeedback={toggleShowFeedback}
+                langID={this.props.language.id}
                 />}
         </section>
       </section>
@@ -66,11 +67,11 @@ function LearningQuestion(props) {
 }
 
 function LearningAnswer(props) {
-  const { guessFeedback, toggleShowFeedback } = props
+  const { guessFeedback, toggleShowFeedback, langID } = props
   return (
     <LearningFeedback
       guessFeedback={guessFeedback}
-      // langID={this.props.language.id}
+      langID={langID}
       toggleShowFeedback={toggleShowFeedback}
     />
   )
