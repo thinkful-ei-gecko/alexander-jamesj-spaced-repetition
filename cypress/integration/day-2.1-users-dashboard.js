@@ -45,7 +45,7 @@ describe(`User story: User's dashboard`, function() {
           .and('have.text', 'Start Learning')
 
         cy.get('h3')
-          .should('have.text', `Phrases (Total Score: ${language.total_score})`)
+          .should('have.text', `Words & Phrases (Total Score: ${language.total_score})`)
       })
     })
   })
