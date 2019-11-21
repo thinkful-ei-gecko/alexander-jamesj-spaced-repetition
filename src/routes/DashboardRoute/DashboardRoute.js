@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './DashboardRoute.css'
-import DashWord from '../../components/DashWord/DashWord'
+import DashWord from '../../components/DashWord/DashWord.jsx'
 import { Link } from 'react-router-dom'
 import UserContext from '../../contexts/UserContext'
 import { gradient } from '../../utils'
