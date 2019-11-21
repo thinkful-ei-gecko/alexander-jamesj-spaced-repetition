@@ -4,12 +4,12 @@ import LanguageAPIService from '../services/language-api-service'
 
 
 //Null values for staging data
-const nullGuess = {
+export const nullGuess = {
   value: '',
   touched: false
 }
 
-const nullNextWord = {
+export const nullNextWord = {
   currentScore: 0,
   word: '',
   correct: 0,
@@ -17,7 +17,7 @@ const nullNextWord = {
   error: ''
 }
 
-const nullGuessFeedback = {
+export const nullGuessFeedback = {
   answer: '',
   isCorrect: false
 }
@@ -31,7 +31,7 @@ const LearningContext = React.createContext({
   onGuessChange: () => { },
   setNextWord: () => { },
   setFeedback: () => { },
-  toggleDisplayFeedback: () => { },
+  toggleShowFeedback: () => { },
   onSubmitGuess: () => { },
   displayFeedback: () => { }
 })
@@ -43,8 +43,16 @@ export class LearningProvider extends React.Component {
     super(props)
     this.state = {
       nextWord: nullNextWord,
-      nextFeedback: nullGuessFeedback,
+      guess: nullGuess,
+      guessFeedback: nullGuessFeedback,
       showFeedback: false,
+      processWord: () => { },
+      onGuessChange: () => { },
+      setNextWord: () => { },
+      setFeedback: () => { },
+      toggleShowFeedback: () => { },
+      onSubmitGuess: () => { },
+      displayFeedback: () => { }
     }
   }
 
@@ -53,18 +61,9 @@ export class LearningProvider extends React.Component {
     if (TokenService.hasAuthToken()) {
       LanguageAPIService.getNextWord()
         .then(word => {
-          console.log(word);
           //Set word, return the rest of response to check if there's feedback
-          this.setNextWord();
-          return word
-        })
-        .then(feedback => {
-          console.log(feedback);
-          //If there's feedback, set feedback data and toggle feedback display.
-          // if (!!feedback.answer && !!feedback.isCorrect) {
-          //   this.setFeedback();
-          //   this.toggleFeedback();
-          // }
+          this.setNextWord(word);
+          console.log(word)
         })
         .catch(err => {
           this.setError(err)
@@ -102,7 +101,7 @@ export class LearningProvider extends React.Component {
     })
   }
 
-  toggleDisplayFeedback = (feedback) => {
+  toggleShowFeedback = (feedback) => {
     this.setState({
       showFeedback: !this.state.showFeedback
     })
@@ -114,56 +113,58 @@ export class LearningProvider extends React.Component {
     let guess = { guess: this.state.guess.value };
 
     LanguageAPIService.submitGuess(guess)
-      .then(res => {
-        this.processWord();
+      .then(feedback => {
+        this.clearGuess();
+        this.setFeedback(feedback);
+        this.toggleShowFeedback();
+        this.setNextWord(feedback);
       })
       .catch(err => {
         this.setError(err)
       })
   }
 
-  clearGuess = () => {
-    this.setState({
-      guess: nullGuess
-    })
-  }
+clearGuess = () => {
+  this.setState({
+    guess: nullGuess
+  })
+}
 
-  setError = error => {
-    this.setState({
-      error
-    })
-  }
+setError = error => {
+  this.setState({
+    error
+  })
+}
 
-  clearError = () => {
-    this.setState({
-      error: null
-    })
-  }
+clearError = () => {
+  this.setState({
+    error: null
+  })
+}
 
-  componentDidMount() {
-    this.processWord()
-  }
+componentDidMount() {
+  this.processWord()
+}
 
-  render() {
-    const value = {
-      currentScore: this.state.currentScore,
-      word: this.state.word,
-      guess: this.state.guess,
-      correct: this.state.correct,
-      incorrect: this.state.incorrect,
-      error: this.state.error,
-      processWord: this.processWord,
-      onGuessChange: this.onGuessChange,
-      setNextWord: this.setNextWord,
-      clearGuess: this.clearGuess,
-      toggleDisplayFeedback: this.toggleDisplayFeedback,
-      onSubmitGuess: this.onSubmitGuess,
-      clearError: this.clearError
-    }
-    return (
-      <LearningContext.Provider value={value} >
-        {this.props.children}
-      </LearningContext.Provider >
-    )
+render() {
+  const value = {
+    nextWord: this.state.nextWord,
+    guess: this.state.guess,
+    guessFeedback: this.state.guessFeedback,
+    showFeedback: this.state.showFeedback,
+    error: this.state.error,
+    processWord: this.processWord,
+    onGuessChange: this.onGuessChange,
+    setNextWord: this.setNextWord,
+    clearGuess: this.clearGuess,
+    toggleShowFeedback: this.toggleShowFeedback,
+    onSubmitGuess: this.onSubmitGuess,
+    clearError: this.clearError
   }
+  return (
+    <LearningContext.Provider value={value} >
+      {this.props.children}
+    </LearningContext.Provider >
+  )
+}
 }

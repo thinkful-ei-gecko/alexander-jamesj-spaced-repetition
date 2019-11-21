@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
+import { nullNextWord } from '../../contexts/LearningContext'
 import './LearningWord.css'
 
 
 class LearningWord extends Component {
   static defaultProps = {
-    word: null,
-    correct: null,
-    incorrect: null
+    nextWord: nullNextWord
   }
   render() {
     const { nextWord } = this.props

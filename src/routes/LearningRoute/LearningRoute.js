@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import LearningContext from '../../contexts/LearningContext';
+import { Link } from 'react-router-dom'
+import LearningContext from '../../contexts/LearningContext'
 import LearningWord from '../../components/LearningWord/LearningWord'
+import LearningFeedback from '../../components/LearningFeedback/LearningFeedback'
 import GuessForm from '../../components/GuessForm/GuessForm'
 import './LearningRoute.css'
 
@@ -22,24 +24,36 @@ class LearningRoute extends Component {
   static contextType = LearningContext;
 
   render() {
-    console.log(this.context)
-    const { nextWord, onSubmitGuess, onGuessChange, guess } = this.context;
-    return (
-      <section className='Learning'>
-        <LearningWord
-          nextWord={nextWord}
-        />
-        <GuessForm
-          handleSubmitGuess={onSubmitGuess}
-          handleGuessChange={onGuessChange}
-          guess={guess}
-        />
-        <section className="LearningRoute__current">
-          <p className="LearningRoute__current__p">
-            Your total score is: <span className="LearningRoute__current__p__score">{nextWord}</span></p>
+    const { showFeedback, nextWord, guessFeedback, onSubmitGuess, onGuessChange, toggleShowFeedback, guess } = this.context;
+
+    if (!showFeedback) {
+      return (
+        <section className='Learning'>
+          <LearningWord
+            nextWord={nextWord}
+          />
+          <GuessForm
+            handleSubmitGuess={onSubmitGuess}
+            handleGuessChange={onGuessChange}
+            guess={guess}
+          />
+          <section className="LearningRoute__current">
+            <p className="LearningRoute__current__p">
+              Your total score is: <span className="LearningRoute__current__p__score">{nextWord.totalScore}</span></p>
+          </section>
         </section>
-      </section>
-    );
+      );
+    } else {
+      return (
+        <section className='Learning'>
+          <LearningFeedback
+            guessFeedback={guessFeedback}
+          />
+
+          <Link to='/learn' onClick={toggleShowFeedback}>Next Phrase</Link>
+        </section>
+      )
+    }
   }
 }
 

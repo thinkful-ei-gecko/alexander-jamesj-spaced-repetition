@@ -1,26 +1,20 @@
 import React, { Component } from 'react'
+import { nullGuessFeedback } from '../../contexts/LearningContext'
 
 class LearningFeedback extends Component {
   static defaultProps = {
-    isCorrect: false,
-    answer: null,
-    word: {
-      guess: '',
-      word: 'Word'
-    },
-    nextWord: {
-      wordCorrectCount: null,
-      wordIncorrectCount: null,
-      totalScore: null,
-    }
+    guessFeedback: nullGuessFeedback,
   }
 
   render() {
-    const { isCorrect } = this.props
+    const { guessFeedback } = this.props
     return (
       <section className="LearningFeedback">
         <h2 className="LearningFeedback">This is the feedback</h2>
-        {isCorrect ? <Correct /> : <Incorrect />}
+        {guessFeedback.isCorrect ? <Correct /> : <Incorrect />}
+
+    <p> The correct answer: {guessFeedback.answer}</p>
+
       </section>
     )
   }
@@ -28,13 +22,13 @@ class LearningFeedback extends Component {
 
 function Correct(props) {
   return (
-    <h2> Correctamundo </h2>
+    <h3> Correct </h3>
   )
 }
 
 function Incorrect(props) {
   return (
-    <h2> Incorrectamundo </h2>
+    <h3> Incorrect </h3>
   )
 }
 
