@@ -49,6 +49,7 @@ class LearningRoute extends Component {
         <section className='Learning'>
           <LearningFeedback
             guessFeedback={guessFeedback}
+            langID={this.props.language.id}
           />
 
           <Link className='Button' to='/learn' onClick={toggleShowFeedback}>Next Phrase</Link>

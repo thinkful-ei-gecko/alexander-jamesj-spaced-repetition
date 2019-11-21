@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { nullGuessFeedback } from '../../contexts/LearningContext'
+import { parseForeign } from '../../utils'
 
 class LearningFeedback extends Component {
   static defaultProps = {
@@ -11,8 +12,9 @@ class LearningFeedback extends Component {
     return (
       <section className="LearningFeedback">
         <Assessment className="LearningFeedback__assessment" isCorrect={guessFeedback.isCorrect} />
-        <p className="LearningFeedback__guess"> You guessed '{guessFeedback.prevGuess}' for {guessFeedback.prevWord}</p>
+        <p className="LearningFeedback__guess"> You guessed '{guessFeedback.prevGuess}' for {parseForeign(guessFeedback.prevWord, this.props.langID)}</p>
         <p className="LearningFeedback__answer"> The correct answer: {guessFeedback.answer}</p>
+
       </section>
     )
   }
