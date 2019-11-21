@@ -28,7 +28,7 @@ describe(`User story: Go to next word`, function() {
 
     cy.login().visit(`/learn`).wait('@languageHeadRequest')
     cy.get('input#learn-guess-input').type('anything')
-    cy.get('form').submit().wait('@postListGuess')
+    cy.get('button').click().wait('@postListGuess')
   })
 
   it(`displays another word after clicking the 'next' button`, () => {
@@ -43,7 +43,7 @@ describe(`User story: Go to next word`, function() {
               `Your total score is: ${languageHeadFixture.totalScore}`,
             )
           cy.get('h2')
-            .should('have.text', 'Translate the word:')
+            .should('have.text', 'Translate the word/phrase:')
             .siblings('span')
             .should('have.text', languageHeadFixture.nextWord)
         })
@@ -51,7 +51,7 @@ describe(`User story: Go to next word`, function() {
 
     cy.get('main form').within($form => {
       cy.get('label[for=learn-guess-input]')
-        .should('have.text', `What's the translation for this word?`)
+        .should('have.text', `What's the translation for this word/phrase?`)
 
       cy.get('input#learn-guess-input')
         .should('have.attr', 'type', 'text')
