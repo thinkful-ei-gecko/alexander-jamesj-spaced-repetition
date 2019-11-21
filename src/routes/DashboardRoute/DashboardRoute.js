@@ -35,7 +35,7 @@ class DashboardRoute extends Component {
         <ul className="Languages">
           <li>
             <h2>{language.name}</h2>
-            <h3>Phrases (Total Score: {language.total_score})</h3>
+            <h3>Word & Phrases (Total Score: {language.total_score})</h3>
             <div className="DashBoard__wordList">
               {words.map(word => (
                 <DashWord key={word.id} word={word} />

@@ -118,6 +118,7 @@ export class LearningProvider extends React.Component {
         this.setFeedback(feedback);
         this.toggleShowFeedback();
         this.setNextWord(feedback);
+
       })
       .catch(err => {
         this.setError(err)

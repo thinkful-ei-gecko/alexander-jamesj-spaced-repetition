@@ -7,7 +7,7 @@ class GuessForm extends Component {
     const { handleSubmitGuess, handleGuessChange, guess } = this.props;
     return (
       <form className="GuessForm">
-        <Label htmlFor="learn-guess-input">What's the translation for this word?</Label>
+        <Label htmlFor="learn-guess-input">What's the translation for this word/phrase?</Label>
         <Input
           id='learn-guess-input'
           name='learn-guess-input'
