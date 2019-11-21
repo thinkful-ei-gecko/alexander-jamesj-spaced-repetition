@@ -5,6 +5,7 @@ import LearningWord from '../../components/LearningWord/LearningWord'
 import LearningFeedback from '../../components/LearningFeedback/LearningFeedback'
 import GuessForm from '../../components/GuessForm/GuessForm'
 import './LearningRoute.css'
+import { gradient } from '../../utils'
 
 //TODO keep refactoring data
 class LearningRoute extends Component {
@@ -39,7 +40,7 @@ class LearningRoute extends Component {
           />
           <section className="LearningRoute__current">
             <p className="LearningRoute__current__p">
-              Your total score is: <span className="LearningRoute__current__p__score">{nextWord.totalScore}</span></p>
+            Your total score is: <span style={gradient(nextWord.totalScore)} className="LearningRoute__current__p__score">{nextWord.totalScore}</span></p>
           </section>
         </section>
       );
@@ -51,6 +52,7 @@ class LearningRoute extends Component {
           />
 
           <Link to='/learn' onClick={toggleShowFeedback}>Next Phrase</Link>
+
         </section>
       )
     }

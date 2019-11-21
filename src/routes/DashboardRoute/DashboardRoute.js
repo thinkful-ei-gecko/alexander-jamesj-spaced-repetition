@@ -1,19 +1,17 @@
-
 import React, { Component } from 'react'
+import './DashboardRoute.css'
 import DashWord from '../../components/DashWord/Dashword'
 import { Link } from 'react-router-dom'
 import UserContext from '../../contexts/UserContext'
-
+import { gradient } from '../../utils'
+ 
 class DashboardRoute extends Component {
   componentDidMount() {
     this.props.processUserLanguage()
   }
 
   componentWillUpdate() {
-    if (
-      this.props.error &&
-      this.props.error.error === 'Unauthorized request'
-    ) {
+    if (this.props.error && this.props.error.error === 'Unauthorized request') {
       this.props.clearError()
       this.context.processLogout()
     }
@@ -21,10 +19,9 @@ class DashboardRoute extends Component {
   static defaultProps = {
     language: {},
     words: [],
-    processUserLanguage: () => { },
+    processUserLanguage: () => {},
     error: null,
   }
-
 
   static contextType = UserContext
 
@@ -35,18 +32,27 @@ class DashboardRoute extends Component {
         <ul className="Languages">
           <li>
             <h2>{language.name}</h2>
-            <h3>Word & Phrases (Total Score: {language.total_score})</h3>
+            <h3>
+              Word & Phrases{' '}
+              <span
+                style={gradient(language.total_score)}
+                className="Dashboard__total-score"
+              >
+                (Total Score: {language.total_score})
+              </span>
+            </h3>
             <div className="DashBoard__wordList">
               {words.map(word => (
                 <DashWord key={word.id} word={word} />
               ))}
             </div>
-            <Link className="button" to="/learn">Start Learning</Link>
+            <Link className="button" to="/learn">
+              Start Learning
+            </Link>
           </li>
         </ul>
       </section>
     )
-
   }
 }
 
