@@ -31,6 +31,7 @@ class LearningRoute extends Component {
         <section className='Learning'>
           <LearningWord
             nextWord={nextWord}
+            langID={this.props.language.id}
           />
           <GuessForm
             handleSubmitGuess={onSubmitGuess}
