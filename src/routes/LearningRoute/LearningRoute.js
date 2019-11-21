@@ -7,7 +7,6 @@ import GuessForm from '../../components/GuessForm/GuessForm'
 import './LearningRoute.css'
 import { gradient } from '../../utils'
 
-//TODO keep refactoring data
 class LearningRoute extends Component {
   componentDidMount() {
     this.context.processWord();

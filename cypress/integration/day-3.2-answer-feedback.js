@@ -13,7 +13,7 @@
   - I'm told how many times I was correct or incorrect for the word
   - I can see a button/link to try another word
 */
-describe(`User story: Answer feedback`, function() {
+describe(`User story: Answer feedback`, function () {
   beforeEach(() => {
     cy.server()
       .route({
@@ -70,7 +70,7 @@ describe(`User story: Answer feedback`, function() {
 
       cy.login().visit(`/learn`).wait('@languageHeadRequest')
       cy.get('input#learn-guess-input').type(guess)
-      cy.get('form').submit().wait('@postListGuessIncorrect')
+      cy.get('button').click().wait('@postListGuessIncorrect')
     })
 
     it(`displays score and feedback the word was incorrect`, () => {
@@ -93,7 +93,7 @@ describe(`User story: Answer feedback`, function() {
           cy.get('h2')
             .should(
               'have.text',
-              `Good try, but not quite right :(`,
+              `Incorrect`,
             )
           cy.get('.DisplayFeedback p')
             .should(
@@ -124,7 +124,7 @@ describe(`User story: Answer feedback`, function() {
 
       cy.login().visit(`/learn`).wait('@languageHeadRequest')
       cy.get('input#learn-guess-input').type(guess)
-      cy.get('form').submit().wait('@postListGuessCorrect')
+      cy.get('button').click().wait('@postListGuessCorrect')
     })
 
     it(`gives feedback the word was correct`, () => {

@@ -10,8 +10,8 @@ class LearningFeedback extends Component {
     const { guessFeedback } = this.props
     return (
       <section className="LearningFeedback">
-        <h2 className="LearningFeedback">This is the feedback</h2>
         {guessFeedback.isCorrect ? <Correct /> : <Incorrect />}
+    <p> You guessed {guessFeedback.prevGuess} for {guessFeedback.prevWord}</p>
 
     <p> The correct answer: {guessFeedback.answer}</p>
 
@@ -22,13 +22,13 @@ class LearningFeedback extends Component {
 
 function Correct(props) {
   return (
-    <h3> Correct </h3>
+    <h2> Correct </h2>
   )
 }
 
 function Incorrect(props) {
   return (
-    <h3> Incorrect </h3>
+    <h2> Incorrect </h2>
   )
 }
 

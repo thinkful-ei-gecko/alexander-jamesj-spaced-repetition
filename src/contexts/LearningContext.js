@@ -18,6 +18,8 @@ export const nullNextWord = {
 }
 
 export const nullGuessFeedback = {
+  prevWord: '',
+  prevGuess: '',
   answer: '',
   isCorrect: false
 }
@@ -63,7 +65,6 @@ export class LearningProvider extends React.Component {
         .then(word => {
           //Set word, return the rest of response to check if there's feedback
           this.setNextWord(word);
-          console.log(word)
         })
         .catch(err => {
           this.setError(err)
@@ -95,6 +96,8 @@ export class LearningProvider extends React.Component {
   setFeedback = (feedback) => {
     this.setState({
       guessFeedback: {
+        prevWord: this.state.nextWord.word,
+        prevGuess: this.state.guess.value,
         answer: feedback.answer,
         isCorrect: feedback.isCorrect
       }
@@ -114,8 +117,8 @@ export class LearningProvider extends React.Component {
 
     LanguageAPIService.submitGuess(guess)
       .then(feedback => {
-        this.clearGuess();
         this.setFeedback(feedback);
+        this.clearGuess();
         this.toggleShowFeedback();
         this.setNextWord(feedback);
 

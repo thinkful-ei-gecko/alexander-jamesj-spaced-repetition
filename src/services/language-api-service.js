@@ -44,7 +44,6 @@ const LanguageAPIService = {
       body: JSON.stringify(guess)
     })
       .then(res => {
-        console.log(res);
         if (!res.ok) {
           return res.json().then(err => Promise.reject(err))
         } else {
