@@ -16,7 +16,7 @@ class DashWord extends Component {
               Correct attempts: {word.correct_count}
             </p>
             </li>
-            <li className="Dashword_incorrect">
+            <li className="DashWord_incorrect">
             <p>
               Missed attempts: {word.incorrect_count}
             </p>

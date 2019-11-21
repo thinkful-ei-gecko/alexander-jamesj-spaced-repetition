@@ -1,6 +1,7 @@
 .LearningRoute__current__p {
   text-align: center;
   font-weight: 600;
+  border-bottom: 2px solid black;
 }
 
 .LearningRoute__current__p__score {

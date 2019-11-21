@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import LearningContext from '../../contexts/LearningContext'
 import LearningWord from '../../components/LearningWord/LearningWord'
 import LearningFeedback from '../../components/LearningFeedback/LearningFeedback'
@@ -24,40 +23,57 @@ class LearningRoute extends Component {
   static contextType = LearningContext;
 
   render() {
-    const { showFeedback, nextWord, guessFeedback, onSubmitGuess, onGuessChange, toggleShowFeedback, guess } = this.context;
-
-    if (!showFeedback) {
-      return (
+    const { showFeedback, guessFeedback, nextWord, guess, onSubmitGuess, onGuessChange, toggleShowFeedback } = this.context;
+    return (
+      <section className="LearningRoute">
+        <p className="LearningRoute__current__p">
+          Your total score is: <span style={gradient(nextWord.totalScore)} className="LearningRoute__current__p__score">{nextWord.totalScore}</span></p>
         <section className='Learning'>
-          <LearningWord
-            nextWord={nextWord}
-            langID={this.props.language.id}
-          />
-          <GuessForm
-            handleSubmitGuess={onSubmitGuess}
-            handleGuessChange={onGuessChange}
-            guess={guess}
-          />
-          <section className="LearningRoute__current">
-            <p className="LearningRoute__current__p">
-            Your total score is: <span style={gradient(nextWord.totalScore)} className="LearningRoute__current__p__score">{nextWord.totalScore}</span></p>
-          </section>
+          {!showFeedback
+            ? <LearningQuestion
+                nextWord={nextWord}
+                guess={guess}
+                onSubmitGuess={onSubmitGuess}
+                onGuessChange={onGuessChange} />
+            : <LearningAnswer
+                guessFeedback={guessFeedback}
+                toggleShowFeedback={toggleShowFeedback}
+                />}
         </section>
-      );
-    } else {
-      return (
-        <section className='Learning'>
-          <LearningFeedback
-            guessFeedback={guessFeedback}
-            langID={this.props.language.id}
-          />
-
-          <Link className='Button' to='/learn' onClick={toggleShowFeedback}>Next Phrase</Link>
-
-        </section>
-      )
-    }
+      </section>
+    )
   }
+}
+
+//langID={this.props.language.id}
+//langID={language.id}
+
+
+function LearningQuestion(props) {
+  const { nextWord, onSubmitGuess, onGuessChange, guess } = props;
+  return (
+    <>
+      <LearningWord
+        nextWord={nextWord}
+      />
+      <GuessForm
+        handleSubmitGuess={onSubmitGuess}
+        handleGuessChange={onGuessChange}
+        guess={guess}
+      />
+    </>
+  );
+}
+
+function LearningAnswer(props) {
+  const { guessFeedback, toggleShowFeedback } = props
+  return (
+    <LearningFeedback
+      guessFeedback={guessFeedback}
+      // langID={this.props.language.id}
+      toggleShowFeedback={toggleShowFeedback}
+    />
+  )
 }
 
 export default LearningRoute
