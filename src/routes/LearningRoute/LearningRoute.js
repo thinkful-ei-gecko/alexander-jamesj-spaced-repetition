@@ -50,7 +50,7 @@ class LearningRoute extends Component {
             guessFeedback={guessFeedback}
           />
 
-          <Link to='/learn' onClick={toggleShowFeedback}>Next Phrase</Link>
+          <Link className='Button' to='/learn' onClick={toggleShowFeedback}>Next Phrase</Link>
 
         </section>
       )
