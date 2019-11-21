@@ -20,6 +20,6 @@ export function parseForeign(str, langID) {
   let parsed = str.split('(')
   let parsedArr = parsed.map(word => word.replace(/[()]/g,''))
   parsedArr[0] = <span lang={`${language}`}>{parsedArr[0]}</span>
-  parsedArr[1] = `(${parsedArr[1]})`
+  parsedArr[1] = parsedArr[1] ? `(${parsedArr[1]})` : null
   return parsedArr
 }
