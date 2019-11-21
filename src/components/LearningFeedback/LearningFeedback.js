@@ -10,8 +10,8 @@ class LearningFeedback extends Component {
     const { guessFeedback } = this.props
     return (
       <section className="LearningFeedback">
-        {<Assessment className="LearningFeedback__assessment" />}
-    <p> You guessed {guessFeedback.prevGuess} for {guessFeedback.prevWord}</p>
+        {<Assessment className="LearningFeedback__assessment" isCorrect={guessFeedback.isCorrect} />}
+    <p> You guessed '{guessFeedback.prevGuess}' for {guessFeedback.prevWord}</p>
 
     <p> The correct answer: {guessFeedback.answer}</p>
 
@@ -21,7 +21,8 @@ class LearningFeedback extends Component {
 }
 
 function Assessment(props) {
-  let isCorrect=this.props
+  let isCorrect = props.isCorrect
+  console.log(isCorrect)
 
   return (
     <h2 className={`LearningFeedback__assessment__heading`}> {!isCorrect ? 'Incorrect' : 'Correct'} </h2>
