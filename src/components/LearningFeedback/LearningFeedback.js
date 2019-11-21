@@ -8,11 +8,11 @@ class LearningFeedback extends Component {
   }
 
   render() {
-    const { guessFeedback } = this.props
+    const { guessFeedback, langID } = this.props
     return (
       <section className="LearningFeedback">
         <Assessment className="LearningFeedback__assessment" isCorrect={guessFeedback.isCorrect} />
-        <p className="LearningFeedback__guess"> You guessed '{guessFeedback.prevGuess}' for {parseForeign(guessFeedback.prevWord, this.props.langID)}</p>
+        <p className="LearningFeedback__guess"> You guessed '{guessFeedback.prevGuess}' for {parseForeign(guessFeedback.prevWord, langID)}</p>
         <p className="LearningFeedback__answer"> The correct answer: {guessFeedback.answer}</p>
 
       </section>
