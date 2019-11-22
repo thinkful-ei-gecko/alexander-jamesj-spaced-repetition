@@ -6,10 +6,23 @@
   border-radius: .75rem;
   padding: .5rem;
   color: var(--off-white);
-  transition: background-color 0.25s ease-out;
+  transition: color 0.5s ease-out,
+              border-color .75s ease-out,
+              background-color 1s ease-out;
 }
 
-button:disabled {
+.Button:hover {
+  color: var(--accent-color-1);
+  border-color: var(--accent-color-1);
+  background-color: var(--blue-very-light);
+}
+
+.Button:active {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.Button:disabled {
   background-color: var(--light-gray);
   color: var(--accent-color-2);
 }

@@ -39,9 +39,19 @@ nav a {
   background-color: var(--blue-light);
   padding: 0.25rem;
   border-radius: 0.2rem;
+  color: var(--accent-color-3);
+  transition: color 0.5s ease-out,
+              border-color .75s ease-out,
+              background-color 1s ease-out;
 }
 
 nav a:hover {
+  color: var(--accent-color-1);
+  border-color: var(--accent-color-1);
+  background-color: var(--blue-very-light);
 }
+
 nav a:active {
+  color: var(--red);
+  border-color: var(--red);
 }
