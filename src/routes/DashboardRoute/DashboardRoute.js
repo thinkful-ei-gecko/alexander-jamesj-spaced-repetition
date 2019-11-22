@@ -29,7 +29,8 @@ class DashboardRoute extends Component {
   render() {
     const { language, words } = this.props
     return (
-      <section className="DashBoard">
+      <section className="Dashboard">
+        <div className="Dashboard__header">
         <h2>{language.name}</h2>
         <h3>
           Words &amp; Phrases{' '}
@@ -40,16 +41,17 @@ class DashboardRoute extends Component {
             (Total Score: {language.total_score})
           </span>
         </h3>
-        <div className="DashBoard__wordList">
-          {words.map(word => (
-            <DashWord key={word.id} word={word} />
-          ))}
-        </div>
         <Button>
           <Link className="button" to="/learn">
             Start Learning
           </Link>
         </Button>
+        </div>
+        <div className="Dashboard__wordList">
+          {words.map(word => (
+            <DashWord key={word.id} word={word} />
+          ))}
+        </div>
       </section>
     )
   }

@@ -1,3 +1,10 @@
+.Dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .Dashboard__total-score {
   display: block;
 }
@@ -7,7 +14,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .DashBoard__wordList {
+  .Dashboard__wordList {
     display: grid;
     grid-gap: 1em;
     grid-template-columns: repeat(2, 1fr);
@@ -15,7 +22,14 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .DashBoard__wordList {
+  .Dashboard__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .Dashboard__wordList {
     grid-template-columns: repeat(3, minmax(0, 500px));
   }
 }
