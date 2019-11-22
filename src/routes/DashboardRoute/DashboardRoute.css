@@ -7,10 +7,8 @@
 
 .Dashboard__total-score {
   display: block;
-}
-
-.Dashboard__total-score[data-value='0'] {
-  color: red;
+  font-weight: bolder;
+  text-shadow: 1px 0px 4px var(--blue-dark)
 }
 
 @media only screen and (min-width: 768px) {
