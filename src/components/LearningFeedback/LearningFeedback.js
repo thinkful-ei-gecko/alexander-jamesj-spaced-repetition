@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { nullGuessFeedback } from '../../contexts/LearningContext'
 import { parseForeign } from '../../utils'
-import Button from '../../components/Button/Button'
+import '../../components/Button/Button.css'
 
 class LearningFeedback extends Component {
   static defaultProps = {
@@ -17,7 +17,7 @@ class LearningFeedback extends Component {
         <Assessment className="LearningFeedback__assessment" isCorrect={guessFeedback.isCorrect} />
         <p className="LearningFeedback__guess">You guessed '{guessFeedback.prevGuess}' for {parseForeign(guessFeedback.prevWord, langID)}</p>
         <p className="LearningFeedback__answer">The correct answer: {guessFeedback.answer}</p>
-        <Button><Link to='/learn' onClick={toggleShowFeedback}>Try another!</Link></Button>
+        <Link to='/learn' className="Button" onClick={toggleShowFeedback}>Try another!</Link>
       </section>
     )
   }
