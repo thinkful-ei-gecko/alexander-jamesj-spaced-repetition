@@ -1,7 +1,7 @@
 {
   "version": 1,
   "name": "Syntracks",
-  "alias": "psychicbologna-syntracks-app",
+  "alias": "alexander-jamesj-spaced-repetition.now.sh",
   "routes": [
     {
       "src":"^/static/(.*)",
