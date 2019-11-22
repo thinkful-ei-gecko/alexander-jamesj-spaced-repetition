@@ -108,7 +108,7 @@ describe(`User story: Answer feedback`, function () {
           cy.get('button')
             .should(
               'have.text',
-              `Try another word!`,
+              `Try another!`,
             )
         })
       })
@@ -167,7 +167,7 @@ describe(`User story: Answer feedback`, function () {
           cy.get('button')
             .should(
               'have.text',
-              `Try another word!`,
+              `Try another!`,
             )
         })
       })
