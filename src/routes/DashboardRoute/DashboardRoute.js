@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './DashboardRoute.css'
 import DashWord from '../../components/DashWord/DashWord.jsx'
 import Button from '../../components/Button/Button'
-import { Link } from 'react-router-dom'
 import UserContext from '../../contexts/UserContext'
 import { gradient } from '../../utils'
 
@@ -20,7 +19,7 @@ class DashboardRoute extends Component {
   static defaultProps = {
     language: {},
     words: [],
-    processUserLanguage: () => { },
+    processUserLanguage: () => {},
     error: null,
   }
 
@@ -31,21 +30,19 @@ class DashboardRoute extends Component {
     return (
       <section className="Dashboard">
         <div className="Dashboard__header">
-        <h2>{language.name}</h2>
-        <h3>
-          Words &amp; Phrases{' '}
-          <span
-            style={gradient(language.total_score)}
-            className="Dashboard__total-score"
-          >
-            (Total Score: {language.total_score})
-          </span>
-        </h3>
-        <Button>
-          <Link className="button" to="/learn">
+          <h2>{language.name}</h2>
+          <h3>
+            Words &amp; Phrases{' '}
+            <span
+              style={gradient(language.total_score)}
+              className="Dashboard__total-score"
+            >
+              (Total Score: {language.total_score})
+            </span>
+          </h3>
+          <Button onClick={() => this.props.history.push('/learn')}>
             Start Learning
-          </Link>
-        </Button>
+          </Button>
         </div>
         <div className="Dashboard__wordList">
           {words.map(word => (

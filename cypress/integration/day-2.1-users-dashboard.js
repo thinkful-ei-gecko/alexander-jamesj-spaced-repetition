@@ -40,8 +40,8 @@ describe(`User story: User's dashboard`, function() {
             `Total Score: ${language.total_score}`,
           )
 
-        cy.get('a')
-          .should('have.attr', 'href', '/learn')
+        cy.get('button')
+          // .should('have.attr', 'href', '/learn')
           .and('have.text', 'Start Learning')
 
         cy.get('h3')
