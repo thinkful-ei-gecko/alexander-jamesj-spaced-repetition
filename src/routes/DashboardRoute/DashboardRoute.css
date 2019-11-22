@@ -8,7 +8,7 @@
 .Dashboard__total-score {
   display: block;
   font-weight: bolder;
-  text-shadow: 1px 0px 4px var(--blue-dark)
+  text-shadow: 0px 1px 2px var(--blue-dark)
 }
 
 @media only screen and (min-width: 768px) {
