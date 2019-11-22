@@ -49,26 +49,6 @@ form footer {
   margin: 1.25rem 0;
 }
 
-input {
-  background-color: var(--light-orange);
-  border-color: var(--accent-color-1);
-  border-style: solid;
-  border-radius: .15rem;
-  border-width: 1px 2px 4px 2px;
-  padding: 0.5rem;
-}
-
-button {
-  /* TODO button styles interacting with normalize on margin*/
-  margin-top: 1.5em;
-  background-color: var(--accent-color-1);
-  border-style: solid;
-  border-color: var(--accent-color-2);
-  border-radius: .75rem;
-  padding: .5rem;
-  color: var(--off-white);
-}
-
 .App {
   margin: 1.5rem;
 }
