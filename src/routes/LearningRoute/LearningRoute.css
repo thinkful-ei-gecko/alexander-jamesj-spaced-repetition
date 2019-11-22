@@ -7,5 +7,6 @@
 .LearningRoute__current__p__score {
   display: block;
   font-size: 1.5em;
+  font-weight: bolder;
   margin: .75em 0;
 }

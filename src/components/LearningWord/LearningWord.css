@@ -32,3 +32,12 @@
 .LearningWord__incorrect {
   color: var(--blue-dark);
 }
+
+.LearningWord__correct-num {
+  color: var(--correct-color);
+  font-weight: bolder;
+}
+.LearningWord__incorrect-num {
+  color: var(--incorrect-color);
+  font-weight: bolder;
+}
