@@ -8,21 +8,21 @@ class DashWord extends Component {
     const word = this.props.word
     
     return (
-      <>
-        <h4 className="DashWord__header">{parseForeign(word.original, parseInt(word.language_id))}</h4>
-        <ul className="DashWord">
+      <div className="DashWord">
+        <h4 className="DashWord__heading">{parseForeign(word.original, parseInt(word.language_id))}</h4>
+        <ul className="DashWord__list">
           <li className="DashWord__correct">
             <p>
               Correct attempts: {word.correct_count}
             </p>
             </li>
-            <li className="DashWord_incorrect">
+            <li className="DashWord__incorrect">
             <p>
               Missed attempts: {word.incorrect_count}
             </p>
           </li>
         </ul>
-      </>
+      </div>
     )
   }
 }

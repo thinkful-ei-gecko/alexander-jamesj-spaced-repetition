@@ -1,5 +1,5 @@
 .LearningWord {
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem;
 }
 
 .LearningWord__word_heading {
@@ -14,8 +14,8 @@
   font-weight: 500;
   display: block;
   padding: .75em;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  border: solid var(--blue-light);
+  border-width: 1rem 0;
 }
 
 .LearningWord__correct, .LearningWord__incorrect {
@@ -26,9 +26,9 @@
 }
 
 .LearningWord__correct {
-  color: var(--accent-color-1);
+  color: var(--blue-dark);
 }
 
 .LearningWord__incorrect {
-  color: var(--accent-color-1);
+  color: var(--blue-dark);
 }

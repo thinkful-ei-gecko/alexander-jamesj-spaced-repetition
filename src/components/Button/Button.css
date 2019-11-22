@@ -1,10 +1,15 @@
-button {
-  /* TODO button styles interacting with normalize on margin*/
-  margin-top: 1.5em;
-  background-color: var(--accent-color-1);
+.Button {
+  margin: 1.5em 0;
+  background-color: var(--blue-light);
   border-style: solid;
   border-color: var(--accent-color-2);
   border-radius: .75rem;
   padding: .5rem;
   color: var(--off-white);
+  transition: background-color 0.25s ease-out;
+}
+
+button:disabled {
+  background-color: var(--light-gray);
+  color: var(--accent-color-2);
 }

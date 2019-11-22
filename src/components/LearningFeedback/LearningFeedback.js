@@ -17,7 +17,7 @@ class LearningFeedback extends Component {
         <Assessment className="LearningFeedback__assessment" isCorrect={guessFeedback.isCorrect} />
         <p className="LearningFeedback__guess">You guessed '{guessFeedback.prevGuess}' for {parseForeign(guessFeedback.prevWord, langID)}</p>
         <p className="LearningFeedback__answer">The correct answer: {guessFeedback.answer}</p>
-        <Button><Link className='Button' to='/learn' onClick={toggleShowFeedback}>Try another!</Link></Button>
+        <Button><Link to='/learn' onClick={toggleShowFeedback}>Try another!</Link></Button>
       </section>
     )
   }

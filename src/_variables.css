@@ -20,13 +20,26 @@
   /* Color Vars */
   
     --base-color: #fffD77;
-    --accent-color-1: #388697;
+    --red: rgb(165, 47, 0);
+    --blue-light: #4aaec5;
+    --blue-dark: #1f4852;
+    --green: rgb(40, 156, 24);
+
+    --ru-yellow-dark:rgb(200, 153, 0);
+    --ru-yellow: rgb(233, 178, 48);
+
     --accent-color-2: #271033;
     --accent-color-3: #0f0613;
     --light-orange: rgb(255, 235, 212);
+    --light-gray: #cacaca;
     --dark-gray: #4a4a4a;
     --off-black: #050505;
-    --off-white: #fafafa;
+    --off-white: rgb(246, 246, 230);
+
+  /* Color Implementation */
+    --correct-color: var(--green);
+    --incorrect-color: var(--red);
+    --background-color: var(--off-white);
   
   /* Type Vars */
   
