@@ -6,7 +6,12 @@
 
 .LearningRoute__current__p__score {
   display: block;
+  font-family: var(--header-family);
+  letter-spacing: 3pt;
   font-size: 1.5em;
-  font-weight: bolder;
-  margin: .75em 0;
+  -webkit-text-stroke: 2px solid var(--blue-dark);
+  text-shadow: 3px 4px 0 var(--blue-dark), -1px -1px 0 var(--blue-dark),
+    1px -1px 0 var(--blue-dark), -1px 1px 0 var(--blue-dark),
+    1px 1px 0 var(--blue-dark);
+  margin: 0.75em 0;
 }
